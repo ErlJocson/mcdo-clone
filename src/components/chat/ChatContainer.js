@@ -149,7 +149,7 @@ function ChatContainer() {
               </ButtonContainer>
             </ChatContentContainer>
 
-            {firstResponse == "Yes" ? (
+            {firstResponse === "Yes" ? (
               <ChatContentContainer>
                 <form>
                   <input
@@ -211,7 +211,7 @@ function ChatContainer() {
               ""
             )}
 
-            {firstResponse == "No" ? (
+            {firstResponse === "No" ? (
               <ChatContentContainer>
                 <p>Please select a feedback category</p>
                 <ButtonContainer>
@@ -267,7 +267,7 @@ function ChatContainer() {
               ""
             )}
 
-            {feedbackCategory == "McDonald's location" ? (
+            {feedbackCategory === "McDonald's location" ? (
               <ChatContentContainer>
                 <p>What is your feedback about?</p>
                 <ButtonContainer>
@@ -305,7 +305,7 @@ function ChatContainer() {
               ""
             )}
 
-            {mcdoTypeLocationFeedback == "My order" ? (
+            {mcdoTypeLocationFeedback === "My order" ? (
               <ChatContentContainer>
                 <p>What type of feedback do you have?</p>
                 <ButtonContainer>
@@ -350,7 +350,7 @@ function ChatContainer() {
               ""
             )}
 
-            {orderFeedbackType == "Charges or Payment" ? (
+            {orderFeedbackType === "Charges or Payment" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -402,7 +402,7 @@ function ChatContainer() {
               ""
             )}
 
-            {orderFeedbackType == "Missing Item(s)" ? (
+            {orderFeedbackType === "Missing Item(s)" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -447,7 +447,7 @@ function ChatContainer() {
               ""
             )}
 
-            {orderFeedbackType == "Portion Size" ? (
+            {orderFeedbackType === "Portion Size" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -460,7 +460,7 @@ function ChatContainer() {
               ""
             )}
 
-            {orderFeedbackType == "Taste or Quality" ? (
+            {orderFeedbackType === "Taste or Quality" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -485,7 +485,7 @@ function ChatContainer() {
               ""
             )}
 
-            {orderFeedbackType == "Wrong Item(s)" ? (
+            {orderFeedbackType === "Wrong Item(s)" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -504,7 +504,7 @@ function ChatContainer() {
               ""
             )}
 
-            {mcdoTypeLocationFeedback == "Restaurant/Facility" ? (
+            {mcdoTypeLocationFeedback === "Restaurant/Facility" ? (
               <ChatContentContainer>
                 <p>What type of feedback do you have?</p>
                 <ButtonContainer>
@@ -544,7 +544,7 @@ function ChatContainer() {
               ""
             )}
 
-            {restaurantFacilityFeedbackType == "Cleanliness" ? (
+            {restaurantFacilityFeedbackType === "Cleanliness" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -563,7 +563,7 @@ function ChatContainer() {
               ""
             )}
 
-            {restaurantFacilityFeedbackType == "Design / Ambience" ? (
+            {restaurantFacilityFeedbackType === "Design / Ambience" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -576,7 +576,8 @@ function ChatContainer() {
               ""
             )}
 
-            {restaurantFacilityFeedbackType == "Facility / Equipment Status" ? (
+            {restaurantFacilityFeedbackType ===
+            "Facility / Equipment Status" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -604,7 +605,7 @@ function ChatContainer() {
               ""
             )}
 
-            {restaurantFacilityFeedbackType == "Safety / Security" ? (
+            {restaurantFacilityFeedbackType === "Safety / Security" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -617,7 +618,7 @@ function ChatContainer() {
               ""
             )}
 
-            {mcdoTypeLocationFeedback == "Service/staff" ? (
+            {mcdoTypeLocationFeedback === "Service/staff" ? (
               <ChatContentContainer>
                 <p>What type of feedback do you have?</p>
                 <ButtonContainer>
@@ -655,7 +656,7 @@ function ChatContainer() {
               ""
             )}
 
-            {serviceStaffFeedbackStaff == "Interaction with Staff" ? (
+            {serviceStaffFeedbackStaff === "Interaction with Staff" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -677,7 +678,7 @@ function ChatContainer() {
               ""
             )}
 
-            {serviceStaffFeedbackStaff == "Restaurant Policies" ? (
+            {serviceStaffFeedbackStaff === "Restaurant Policies" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -696,7 +697,7 @@ function ChatContainer() {
               ""
             )}
 
-            {serviceStaffFeedbackStaff == "Speed of Service" ? (
+            {serviceStaffFeedbackStaff === "Speed of Service" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -709,7 +710,7 @@ function ChatContainer() {
               ""
             )}
 
-            {serviceStaffFeedbackStaff == "Unable To Contact Store" ? (
+            {serviceStaffFeedbackStaff === "Unable To Contact Store" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -722,7 +723,7 @@ function ChatContainer() {
               ""
             )}
 
-            {feedbackCategory == "Arch Card" ? (
+            {feedbackCategory === "Arch Card" ? (
               <ChatContentContainer>
                 <p>What is your feedback about?</p>
                 <ButtonContainer>
@@ -739,7 +740,7 @@ function ChatContainer() {
               ""
             )}
 
-            {archCard == "Arch Card (Gift Card)" ? (
+            {archCard === "Arch Card (Gift Card)" ? (
               <ChatContentContainer>
                 <p>What type of feedback do you have?</p>
                 <ButtonContainer>
@@ -763,7 +764,7 @@ function ChatContainer() {
               ""
             )}
 
-            {archCardFeedbackType == "Arch Card Replacement" ? (
+            {archCardFeedbackType === "Arch Card Replacement" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -776,7 +777,7 @@ function ChatContainer() {
               ""
             )}
 
-            {archCardFeedbackType == "Arch Card Cash Out" ? (
+            {archCardFeedbackType === "Arch Card Cash Out" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -789,7 +790,7 @@ function ChatContainer() {
               ""
             )}
 
-            {feedbackCategory == "Something else" ? (
+            {feedbackCategory === "Something else" ? (
               <ChatContentContainer>
                 <p>What is your feedback about?</p>
                 <ButtonContainer>
@@ -815,7 +816,7 @@ function ChatContainer() {
               ""
             )}
 
-            {somethingElseTypeCategory == "Corporate" ? (
+            {somethingElseTypeCategory === "Corporate" ? (
               <ChatContentContainer>
                 <p>What type of feedback do you have?</p>
                 <ButtonContainer>
@@ -850,7 +851,7 @@ function ChatContainer() {
               ""
             )}
 
-            {corporateFeedbackType == "Business" ? (
+            {corporateFeedbackType === "Business" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -881,7 +882,7 @@ function ChatContainer() {
               ""
             )}
 
-            {corporateFeedbackType == "Customer Data and Communications" ? (
+            {corporateFeedbackType === "Customer Data and Communications" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -894,7 +895,7 @@ function ChatContainer() {
               ""
             )}
 
-            {corporateFeedbackType == "Marketing" ? (
+            {corporateFeedbackType === "Marketing" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -913,7 +914,7 @@ function ChatContainer() {
               ""
             )}
 
-            {corporateFeedbackType == "Menu" ? (
+            {corporateFeedbackType === "Menu" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -935,7 +936,7 @@ function ChatContainer() {
               ""
             )}
 
-            {corporateFeedbackType == "Social Responsibility" ? (
+            {corporateFeedbackType === "Social Responsibility" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -951,7 +952,7 @@ function ChatContainer() {
               ""
             )}
 
-            {somethingElseTypeCategory == "McDonald's App" ? (
+            {somethingElseTypeCategory === "McDonald's App" ? (
               <ChatContentContainer>
                 <p>What type of feedback do you have?</p>
                 <ButtonContainer>
@@ -996,7 +997,7 @@ function ChatContainer() {
               ""
             )}
 
-            {mcdoAppFeedbackType == "Account / Login" ? (
+            {mcdoAppFeedbackType === "Account / Login" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -1018,7 +1019,7 @@ function ChatContainer() {
               ""
             )}
 
-            {mcdoAppFeedbackType == "General App Support" ? (
+            {mcdoAppFeedbackType === "General App Support" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -1034,7 +1035,7 @@ function ChatContainer() {
               ""
             )}
 
-            {mcdoAppFeedbackType == "Loyalty / Rewards Program" ? (
+            {mcdoAppFeedbackType === "Loyalty / Rewards Program" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -1053,7 +1054,7 @@ function ChatContainer() {
               ""
             )}
 
-            {mcdoAppFeedbackType == "Mobile Order and Pay" ? (
+            {mcdoAppFeedbackType === "Mobile Order and Pay" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>
@@ -1081,7 +1082,7 @@ function ChatContainer() {
               ""
             )}
 
-            {mcdoAppFeedbackType == "Rewards and Deals" ? (
+            {mcdoAppFeedbackType === "Rewards and Deals" ? (
               <ChatContentContainer>
                 <p>Specify Feedback</p>
                 <ButtonContainer>

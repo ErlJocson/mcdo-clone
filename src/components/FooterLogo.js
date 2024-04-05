@@ -21,8 +21,8 @@ function FooterLogo() {
           <img src={spotify} alt="" />
         </LogoContainer>
         <ButtonsContainer>
-          <img src={google_play_badge} />
-          <img src={app_store_badge} />
+          <img alt="" src={google_play_badge} />
+          <img alt="" src={app_store_badge} />
         </ButtonsContainer>
       </FooterLogoContainer>
     </>
