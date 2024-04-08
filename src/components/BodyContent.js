@@ -8,7 +8,7 @@ function BodyContent() {
     <>
       <MainBodyContainer>
         <ContentContainer>
-          <ImgContainer src={image1} alt="" />
+          <ImgContainer src={image1} alt="" className="dark-shadow" />
           <MainContent>
             <ContentTitle>$4 Off Your First App Order</ContentTitle>
             <ContentParagraph>
@@ -28,7 +28,7 @@ function BodyContent() {
         </ContentContainer>
 
         <ContentContainer>
-          <ImgContainer src={image2} alt="" />
+          <ImgContainer src={image2} alt="" className="dark-shadow" />
           <MainContent>
             <ContentTitle>Can i get uhhh... $0 Delivery Fee</ContentTitle>
             <ContentParagraph>
@@ -51,7 +51,7 @@ function BodyContent() {
         </ContentContainer>
 
         <ContentContainer>
-          <ImgContainer src={image3} alt="" />
+          <ImgContainer src={image3} alt="" className="dark-shadow" />
           <MainContent>
             <ContentTitle>“McD’s Best Burgers Ever.” - Hamburglar</ContentTitle>
             <ContentParagraph>

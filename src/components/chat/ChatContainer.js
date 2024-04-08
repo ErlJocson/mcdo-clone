@@ -26,8 +26,12 @@ function ChatContainer() {
   const [showPartners, setShowPartners] = useState(false);
 
   const [mobileAppClicked, setMobileAppClicked] = useState(false);
-
+  const [orderID, setOrderID] = useState("");
   const [isChecked, setIsChecked] = useState(true);
+
+  const setOrderIDFunc = (event) => {
+    setOrderID(event.target.value);
+  };
 
   const setCaseNumberFunc = (event) => {
     setCaseNumber(event.target.value);
@@ -822,6 +826,11 @@ function ChatContainer() {
                     onChange={setReceiptFunc}
                     value={receipt}
                     placeholder="Enter store number from receipt..."
+                  />
+                  <input
+                    onChange={setOrderIDFunc}
+                    value={orderID}
+                    placeholder="Order ID..."
                   />
                   <ButtonContainer>
                     <button type="button">Verify this number</button>

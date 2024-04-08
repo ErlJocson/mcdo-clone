@@ -1,9 +1,9 @@
 import { styled } from "styled-components";
-import logo from "./assets/logo.jpg";
+import logo from "./assets/logo.png";
 
 function Nav() {
   return (
-    <nav className="light-shadow">
+    <nav className="shadow">
       <Header>
         <ImgContainer>
           <img src={logo} alt="" />

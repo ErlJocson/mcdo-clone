@@ -21,6 +21,7 @@
 
 body {
   position: relative;
+  background-color: #c3c3c3;
 }
 
 .bg-blue {
@@ -127,6 +128,10 @@ body {
 
 .btn-success:hover {
   color: black;
+}
+
+button {
+  box-shadow: var(--dark-shadow);
 }
 
 /* Shadow */
