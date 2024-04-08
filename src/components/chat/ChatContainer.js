@@ -3,6 +3,7 @@ import { useState } from "react";
 import bubble from "../assets/bubble.png";
 
 function ChatContainer() {
+  const [receipt, setReceipt] = useState("");
   const [caseNumber, setCaseNumber] = useState("");
   const [details, setDetails] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -176,7 +177,17 @@ function ChatContainer() {
                     placeholder="Details..."
                   ></textarea>
                   <ButtonContainer>
-                    <button>Submit</button>
+                    <button
+                      onClick={(e) => {
+                        alert("Follow up sent!");
+                        setCaseNumber("");
+                        setShowChat(false);
+                        setDetails("");
+                        e.preventDefault();
+                      }}
+                    >
+                      Submit
+                    </button>
                   </ButtonContainer>
                 </form>
               </ChatContentContainer>
@@ -720,7 +731,11 @@ function ChatContainer() {
                   the restaurant locator.
                 </p>
                 <form>
-                  <input placeholder="Enter store number from receipt..." />
+                  <input
+                    onChange={setReceipt}
+                    value={receipt}
+                    placeholder="Enter store number from receipt..."
+                  />
                   <ButtonContainer>
                     <button type="button">Verify this number</button>
                     <button type="button">Use Restaurant Locator</button>
@@ -758,7 +773,22 @@ function ChatContainer() {
                     placeholder="Mc Donald's App Email..."
                   />
                   <ButtonContainer>
-                    <button>Submit</button>
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setReceipt("");
+                        setCaseNumber("");
+                        setDetails("");
+                        setFirstName("");
+                        setLastName("");
+                        setPersonalEmail("");
+                        setPhone("");
+                        setAppEmail("");
+                        alert("Your new case number: 123-123-123");
+                      }}
+                    >
+                      Submit
+                    </button>
                   </ButtonContainer>
                 </form>
               </ChatContentContainer>
