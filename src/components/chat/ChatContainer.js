@@ -231,6 +231,7 @@ function ChatContainer() {
                       setFinalOrder(false);
                       setOrderFeedbackType("");
                       setRestaurantFacilityFeedbackType("");
+                      setServiceStaffFeedbackStaff("");
                     }}
                   >
                     Compliment
