@@ -3,11 +3,6 @@ import { useState } from "react";
 import bubble from "../assets/bubble.png";
 
 function ChatContainer() {
-  const [showChat, setShowChat] = useState(false);
-  const [mobileOrApp, setMobileOrApp] = useState(false);
-  const [feedbackTypeResponse, setFeedbackTypeResponse] = useState(false);
-  const [firstResponse, setFirstReponse] = useState("");
-
   const [caseNumber, setCaseNumber] = useState("");
   const [details, setDetails] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -15,6 +10,11 @@ function ChatContainer() {
   const [personalEmail, setPersonalEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [appEmail, setAppEmail] = useState("");
+
+  const [showChat, setShowChat] = useState(false);
+  const [mobileOrApp, setMobileOrApp] = useState(false);
+  const [feedbackTypeResponse, setFeedbackTypeResponse] = useState(false);
+  const [firstResponse, setFirstReponse] = useState("");
 
   const [mcdoTypeLocationFeedback, setMcdoTypeLocationFeedback] = useState("");
 
@@ -59,6 +59,13 @@ function ChatContainer() {
   const showChatFunc = () => {
     setShowChat(!showChat);
     setFirstReponse("");
+    setMcdoTypeLocationFeedback("");
+    setOrderFeedbackType("");
+    setServiceStaffFeedbackStaff("");
+    setRestaurantFacilityFeedbackType("");
+    setFinalOrder(false);
+    setFeedbackTypeResponse(false);
+    setMobileOrApp(false);
   };
 
   return (
@@ -83,14 +90,28 @@ function ChatContainer() {
               <ButtonContainer>
                 <button
                   onClick={() => {
-                    setMobileOrApp(true);
+                    setMobileOrApp(!mobileOrApp);
+                    setServiceStaffFeedbackStaff("");
+                    setFirstReponse("");
+                    setFeedbackTypeResponse(false);
+                    setOrderFeedbackType("");
+                    setMcdoTypeLocationFeedback("");
+                    setRestaurantFacilityFeedbackType("");
+                    setFinalOrder(false);
                   }}
                 >
                   Mobile
                 </button>
                 <button
                   onClick={() => {
-                    setMobileOrApp(true);
+                    setMobileOrApp(!mobileOrApp);
+                    setServiceStaffFeedbackStaff("");
+                    setRestaurantFacilityFeedbackType("");
+                    setFinalOrder(false);
+                    setMcdoTypeLocationFeedback("");
+                    setOrderFeedbackType("");
+                    setFeedbackTypeResponse(false);
+                    setFirstReponse("");
                   }}
                 >
                   In-App Delivery Order
@@ -104,14 +125,34 @@ function ChatContainer() {
                 <ButtonContainer>
                   <button
                     onClick={() => {
-                      setFirstReponse("Yes");
+                      setServiceStaffFeedbackStaff("");
+                      setFeedbackTypeResponse(false);
+                      setMcdoTypeLocationFeedback("");
+                      setRestaurantFacilityFeedbackType("");
+                      setFinalOrder(false);
+                      setOrderFeedbackType("");
+                      if (firstResponse === "Yes") {
+                        setFirstReponse("");
+                      } else {
+                        setFirstReponse("Yes");
+                      }
                     }}
                   >
                     Yes
                   </button>
                   <button
                     onClick={() => {
-                      setFirstReponse("No");
+                      setServiceStaffFeedbackStaff("");
+                      setFeedbackTypeResponse(false);
+                      setFinalOrder(false);
+                      setOrderFeedbackType("");
+                      setMcdoTypeLocationFeedback("");
+                      setRestaurantFacilityFeedbackType("");
+                      if (firstResponse === "No") {
+                        setFirstReponse("");
+                      } else {
+                        setFirstReponse("No");
+                      }
                     }}
                   >
                     No
@@ -149,28 +190,47 @@ function ChatContainer() {
                 <ButtonContainer>
                   <button
                     onClick={() => {
-                      setFeedbackTypeResponse(true);
+                      setFeedbackTypeResponse(!feedbackTypeResponse);
+                      setMcdoTypeLocationFeedback("");
+                      setOrderFeedbackType("");
+                      setServiceStaffFeedbackStaff("");
+                      setRestaurantFacilityFeedbackType("");
+                      setFinalOrder(false);
                     }}
                   >
                     Complaint
                   </button>
                   <button
                     onClick={() => {
-                      setFeedbackTypeResponse(true);
+                      setFeedbackTypeResponse(!feedbackTypeResponse);
+                      setMcdoTypeLocationFeedback("");
+                      setFinalOrder(false);
+                      setServiceStaffFeedbackStaff("");
+                      setRestaurantFacilityFeedbackType("");
+                      setOrderFeedbackType("");
                     }}
                   >
                     Inquiry
                   </button>
                   <button
                     onClick={() => {
-                      setFeedbackTypeResponse(true);
+                      setFeedbackTypeResponse(!feedbackTypeResponse);
+                      setMcdoTypeLocationFeedback("");
+                      setFinalOrder(false);
+                      setServiceStaffFeedbackStaff("");
+                      setOrderFeedbackType("");
+                      setRestaurantFacilityFeedbackType("");
                     }}
                   >
                     Suggestions
                   </button>
                   <button
                     onClick={() => {
-                      setFeedbackTypeResponse(true);
+                      setFeedbackTypeResponse(!feedbackTypeResponse);
+                      setMcdoTypeLocationFeedback("");
+                      setFinalOrder(false);
+                      setOrderFeedbackType("");
+                      setRestaurantFacilityFeedbackType("");
                     }}
                   >
                     Compliment
@@ -187,21 +247,44 @@ function ChatContainer() {
                 <ButtonContainer>
                   <button
                     onClick={() => {
-                      setMcdoTypeLocationFeedback("My order");
+                      setRestaurantFacilityFeedbackType("");
+                      setServiceStaffFeedbackStaff("");
+                      setFinalOrder(false);
+                      if (mcdoTypeLocationFeedback === "My order") {
+                        setMcdoTypeLocationFeedback("");
+                      } else {
+                        setMcdoTypeLocationFeedback("My order");
+                      }
                     }}
                   >
                     Product
                   </button>
                   <button
                     onClick={() => {
-                      setMcdoTypeLocationFeedback("Restaurant/Facility");
+                      setOrderFeedbackType("");
+                      setServiceStaffFeedbackStaff("");
+
+                      setFinalOrder(false);
+                      if (mcdoTypeLocationFeedback === "Restaurant/Facility") {
+                        setMcdoTypeLocationFeedback("");
+                      } else {
+                        setMcdoTypeLocationFeedback("Restaurant/Facility");
+                      }
                     }}
                   >
                     Service
                   </button>
                   <button
                     onClick={() => {
-                      setMcdoTypeLocationFeedback("Service/staff");
+                      setRestaurantFacilityFeedbackType("");
+                      setServiceStaffFeedbackStaff("");
+                      setOrderFeedbackType("");
+                      setFinalOrder(false);
+                      if (mcdoTypeLocationFeedback === "Service/staff") {
+                        setMcdoTypeLocationFeedback("");
+                      } else {
+                        setMcdoTypeLocationFeedback("Service/staff");
+                      }
                     }}
                   >
                     Facilities
