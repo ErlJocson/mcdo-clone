@@ -907,6 +907,7 @@ function ChatContainer() {
                     <button
                       type="submit"
                       onClick={(e) => {
+                        setIsChecked(true);
                         e.preventDefault();
                         setReceipt("");
                         setCaseNumber("");
