@@ -86,7 +86,7 @@ function ChatContainer() {
               </p>
             </ChatContentContainer>
 
-            <ChatContentContainer>
+            <ChatContentContainer className="slide-in-from-bottom-fast">
               <p>Choose from the following options: </p>
               <ButtonContainer>
                 <button
@@ -121,7 +121,7 @@ function ChatContainer() {
             </ChatContentContainer>
 
             {mobileOrApp && (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>Contacting about a previously reported case?</p>
                 <ButtonContainer>
                   <button
@@ -163,7 +163,7 @@ function ChatContainer() {
             )}
 
             {firstResponse === "Yes" ? (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>Report Details: </p>
                 <form>
                   <input
@@ -196,7 +196,7 @@ function ChatContainer() {
             )}
 
             {firstResponse === "No" ? (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>Please select a feedback type from the following: </p>
                 <ButtonContainer>
                   <button
@@ -254,7 +254,7 @@ function ChatContainer() {
             )}
 
             {feedbackTypeResponse && (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>Please select a feedback category from the following: </p>
                 <ButtonContainer>
                   <button
@@ -306,12 +306,13 @@ function ChatContainer() {
             )}
 
             {mcdoTypeLocationFeedback === "My order" ? (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>What type of feedback do you have?</p>
                 <ButtonContainer>
                   <button
                     onClick={() => {
                       setOrderFeedbackType("Charges or Payment");
+                      setFinalOrder(false);
                     }}
                   >
                     Charges or Payment
@@ -319,6 +320,7 @@ function ChatContainer() {
                   <button
                     onClick={() => {
                       setOrderFeedbackType("Missing Item(s)");
+                      setFinalOrder(false);
                     }}
                   >
                     Missing Item(s)
@@ -326,6 +328,7 @@ function ChatContainer() {
                   <button
                     onClick={() => {
                       setOrderFeedbackType("Portion Size");
+                      setFinalOrder(false);
                     }}
                   >
                     Portion Size
@@ -333,6 +336,7 @@ function ChatContainer() {
                   <button
                     onClick={() => {
                       setOrderFeedbackType("Taste or Quality");
+                      setFinalOrder(false);
                     }}
                   >
                     Taste or Quality
@@ -340,6 +344,7 @@ function ChatContainer() {
                   <button
                     onClick={() => {
                       setOrderFeedbackType("Wrong Item(s)");
+                      setFinalOrder(false);
                     }}
                   >
                     Wrong Item(s)
@@ -351,7 +356,7 @@ function ChatContainer() {
             )}
 
             {orderFeedbackType === "Charges or Payment" ? (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>Specify Feedback</p>
                 <ButtonContainer>
                   <button
@@ -403,7 +408,7 @@ function ChatContainer() {
             )}
 
             {orderFeedbackType === "Missing Item(s)" ? (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>Specify Feedback</p>
                 <ButtonContainer>
                   <button
@@ -448,7 +453,7 @@ function ChatContainer() {
             )}
 
             {orderFeedbackType === "Portion Size" ? (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>Specify Feedback</p>
                 <ButtonContainer>
                   <button onClick={() => setFinalOrder(true)}>
@@ -461,7 +466,7 @@ function ChatContainer() {
             )}
 
             {orderFeedbackType === "Taste or Quality" ? (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>Specify Feedback</p>
                 <ButtonContainer>
                   <button onClick={() => setFinalOrder(true)}>
@@ -486,7 +491,7 @@ function ChatContainer() {
             )}
 
             {orderFeedbackType === "Wrong Item(s)" ? (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>Specify Feedback</p>
                 <ButtonContainer>
                   <button onClick={() => setFinalOrder(true)}>
@@ -505,12 +510,13 @@ function ChatContainer() {
             )}
 
             {mcdoTypeLocationFeedback === "Restaurant/Facility" ? (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>What type of feedback do you have?</p>
                 <ButtonContainer>
                   <button
                     onClick={() => {
                       setRestaurantFacilityFeedbackType("Cleanliness");
+                      setFinalOrder(false);
                     }}
                   >
                     Cleanliness
@@ -518,6 +524,7 @@ function ChatContainer() {
                   <button
                     onClick={() => {
                       setRestaurantFacilityFeedbackType("Design / Ambience");
+                      setFinalOrder(false);
                     }}
                   >
                     Design / Ambience
@@ -527,6 +534,7 @@ function ChatContainer() {
                       setRestaurantFacilityFeedbackType(
                         "Facility / Equipment Status"
                       );
+                      setFinalOrder(false);
                     }}
                   >
                     Facility / Equipment Status
@@ -534,6 +542,7 @@ function ChatContainer() {
                   <button
                     onClick={() => {
                       setRestaurantFacilityFeedbackType("Safety / Security");
+                      setFinalOrder(false);
                     }}
                   >
                     Safety / Security
@@ -545,7 +554,7 @@ function ChatContainer() {
             )}
 
             {restaurantFacilityFeedbackType === "Cleanliness" ? (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>Specify Feedback</p>
                 <ButtonContainer>
                   <button onClick={() => setFinalOrder(true)}>
@@ -564,7 +573,7 @@ function ChatContainer() {
             )}
 
             {restaurantFacilityFeedbackType === "Design / Ambience" ? (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>Specify Feedback</p>
                 <ButtonContainer>
                   <button onClick={() => setFinalOrder(true)}>
@@ -578,7 +587,7 @@ function ChatContainer() {
 
             {restaurantFacilityFeedbackType ===
             "Facility / Equipment Status" ? (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>Specify Feedback</p>
                 <ButtonContainer>
                   <button onClick={() => setFinalOrder(true)}>
@@ -606,7 +615,7 @@ function ChatContainer() {
             )}
 
             {restaurantFacilityFeedbackType === "Safety / Security" ? (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>Specify Feedback</p>
                 <ButtonContainer>
                   <button onClick={() => setFinalOrder(true)}>
@@ -619,12 +628,13 @@ function ChatContainer() {
             )}
 
             {mcdoTypeLocationFeedback === "Service/staff" ? (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>What type of feedback do you have?</p>
                 <ButtonContainer>
                   <button
                     onClick={() => {
                       setServiceStaffFeedbackStaff("Interaction with Staff");
+                      setFinalOrder(false);
                     }}
                   >
                     Interaction with Staff
@@ -632,6 +642,7 @@ function ChatContainer() {
                   <button
                     onClick={() => {
                       setServiceStaffFeedbackStaff("Restaurant Policies");
+                      setFinalOrder(false);
                     }}
                   >
                     Restaurant Policies
@@ -639,6 +650,7 @@ function ChatContainer() {
                   <button
                     onClick={() => {
                       setServiceStaffFeedbackStaff("Speed of Service");
+                      setFinalOrder(false);
                     }}
                   >
                     Speed of Service
@@ -646,6 +658,7 @@ function ChatContainer() {
                   <button
                     onClick={() => {
                       setServiceStaffFeedbackStaff("Unable To Contact Store");
+                      setFinalOrder(false);
                     }}
                   >
                     Unable To Contact Store
@@ -657,7 +670,7 @@ function ChatContainer() {
             )}
 
             {serviceStaffFeedbackStaff === "Interaction with Staff" ? (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>Specify Feedback</p>
                 <ButtonContainer>
                   <button onClick={() => setFinalOrder(true)}>
@@ -679,7 +692,7 @@ function ChatContainer() {
             )}
 
             {serviceStaffFeedbackStaff === "Restaurant Policies" ? (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>Specify Feedback</p>
                 <ButtonContainer>
                   <button onClick={() => setFinalOrder(true)}>
@@ -698,7 +711,7 @@ function ChatContainer() {
             )}
 
             {serviceStaffFeedbackStaff === "Speed of Service" ? (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>Specify Feedback</p>
                 <ButtonContainer>
                   <button onClick={() => setFinalOrder(true)}>
@@ -711,7 +724,7 @@ function ChatContainer() {
             )}
 
             {serviceStaffFeedbackStaff === "Unable To Contact Store" ? (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>Specify Feedback</p>
                 <ButtonContainer>
                   <button onClick={() => setFinalOrder(true)}>
@@ -724,7 +737,7 @@ function ChatContainer() {
             )}
 
             {finalOrder && (
-              <ChatContentContainer>
+              <ChatContentContainer className="slide-in-from-bottom-fast">
                 <p>
                   Please tell us what restaurant you visited by entering the
                   store number on your receipt or by finding a location using
