@@ -3,7 +3,7 @@ import logo from "./assets/logo.jpg";
 
 function Nav() {
   return (
-    <NavTag className="light-shadow">
+    <nav className="light-shadow">
       <Header>
         <ImgContainer>
           <img src={logo} alt="" />
@@ -56,20 +56,17 @@ function Nav() {
           </BottomNav>
         </NavContainer>
       </Header>
-    </NavTag>
+    </nav>
   );
 }
 
 export default Nav;
 
-const NavTag = styled.div`
-  width: 100%;
-`;
-
 const Header = styled.header`
   display: flex;
-  margin: 0 200px 0 200px;
   justify-content: center;
+  width: 90%;
+  margin: auto;
 `;
 
 const NavContainer = styled.div`

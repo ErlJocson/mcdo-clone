@@ -11,22 +11,16 @@ function ChatContainer() {
   const [personalEmail, setPersonalEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [appEmail, setAppEmail] = useState("");
-
   const [showChat, setShowChat] = useState(false);
   const [mobileOrApp, setMobileOrApp] = useState(false);
   const [feedbackTypeResponse, setFeedbackTypeResponse] = useState(false);
   const [firstResponse, setFirstReponse] = useState("");
-
   const [mcdoTypeLocationFeedback, setMcdoTypeLocationFeedback] = useState("");
-
   const [orderFeedbackType, setOrderFeedbackType] = useState("");
-
   const [restaurantFacilityFeedbackType, setRestaurantFacilityFeedbackType] =
     useState("");
-
   const [serviceStaffFeedbackStaff, setServiceStaffFeedbackStaff] =
     useState("");
-
   const [finalOrder, setFinalOrder] = useState(false);
 
   const setCaseNumberFunc = (event) => {
@@ -55,6 +49,10 @@ function ChatContainer() {
 
   const setAppEmailFunc = (event) => {
     setAppEmail(event.target.value);
+  };
+
+  const setReceiptFunc = (event) => {
+    setReceipt(event.target.value);
   };
 
   const showChatFunc = () => {
@@ -753,7 +751,7 @@ function ChatContainer() {
                 </p>
                 <form>
                   <input
-                    onChange={setReceipt}
+                    onChange={setReceiptFunc}
                     value={receipt}
                     placeholder="Enter store number from receipt..."
                   />
