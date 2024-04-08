@@ -181,8 +181,16 @@ function ChatContainer() {
                       onClick={(e) => {
                         alert("Follow up sent!");
                         setCaseNumber("");
-                        setShowChat(false);
                         setDetails("");
+
+                        setFirstReponse("");
+                        setMcdoTypeLocationFeedback("");
+                        setOrderFeedbackType("");
+                        setServiceStaffFeedbackStaff("");
+                        setRestaurantFacilityFeedbackType("");
+                        setFinalOrder(false);
+                        setFeedbackTypeResponse(false);
+                        setMobileOrApp(false);
                         e.preventDefault();
                       }}
                     >
@@ -787,6 +795,7 @@ function ChatContainer() {
                   />
                   <ButtonContainer>
                     <button
+                      type="submit"
                       onClick={(e) => {
                         e.preventDefault();
                         setReceipt("");
@@ -798,6 +807,15 @@ function ChatContainer() {
                         setPhone("");
                         setAppEmail("");
                         alert("Your new case number: 123-123-123");
+
+                        setFirstReponse("");
+                        setMcdoTypeLocationFeedback("");
+                        setOrderFeedbackType("");
+                        setServiceStaffFeedbackStaff("");
+                        setRestaurantFacilityFeedbackType("");
+                        setFinalOrder(false);
+                        setFeedbackTypeResponse(false);
+                        setMobileOrApp(false);
                       }}
                     >
                       Submit
@@ -852,7 +870,6 @@ const ChatContentContainer = styled.div`
   box-shadow: var(--light-shadow);
   font-size: 13px;
   margin: 10px 0;
-  /* width: 300px; */
   background-color: #ffd15c;
   padding: 8px;
   border-radius: 10px;
