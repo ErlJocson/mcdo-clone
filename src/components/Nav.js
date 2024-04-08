@@ -96,12 +96,12 @@ const TopNav = styled.div`
 `;
 
 const BottomNav = styled.div`
-  margin: 10px 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
   a {
-    margin: 0 20px 0 20px;
+    margin: 0 14px;
   }
 `;
 

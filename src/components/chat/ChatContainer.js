@@ -863,7 +863,7 @@ const ChatContainerBox = styled.div`
   border-top: 2px solid #3d2c00;
   width: 100%;
   overflow: auto;
-  height: 600px;
+  height: 480px;
 `;
 
 const ChatContentContainer = styled.div`
