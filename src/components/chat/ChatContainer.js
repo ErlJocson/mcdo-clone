@@ -4,6 +4,8 @@ import bubble from "../assets/bubble.png";
 
 function ChatContainer() {
   const [showChat, setShowChat] = useState(false);
+  const [mobileOrApp, setMobileOrApp] = useState(false);
+  const [feedbackTypeResponse, setFeedbackTypeResponse] = useState(false);
   const [firstResponse, setFirstReponse] = useState("");
 
   const [caseNumber, setCaseNumber] = useState("");
@@ -14,12 +16,7 @@ function ChatContainer() {
   const [phone, setPhone] = useState("");
   const [appEmail, setAppEmail] = useState("");
 
-  const [feedbackCategory, setFeedbackCategory] = useState("");
-
   const [mcdoTypeLocationFeedback, setMcdoTypeLocationFeedback] = useState("");
-  const [archCard, setArchCard] = useState("");
-  const [somethingElseTypeCategory, setSomethingElseTypeCategory] =
-    useState("");
 
   const [orderFeedbackType, setOrderFeedbackType] = useState("");
 
@@ -29,17 +26,7 @@ function ChatContainer() {
   const [serviceStaffFeedbackStaff, setServiceStaffFeedbackStaff] =
     useState("");
 
-  const [archCardFeedbackType, setArchCardFeedbackType] = useState("");
-
-  const [corporateFeedbackType, setCorporateFeedbackType] = useState("");
-
-  const [mcdoAppFeedbackType, setMcdoAppFeedbackType] = useState("");
-
   const [finalOrder, setFinalOrder] = useState(false);
-
-  const [archCardDetails, setArchCardDetails] = useState(false);
-
-  const [somethingElseDetails, setSomethingElseDetails] = useState(false);
 
   const setCaseNumberFunc = (event) => {
     setCaseNumber(event.target.value);
@@ -72,20 +59,6 @@ function ChatContainer() {
   const showChatFunc = () => {
     setShowChat(!showChat);
     setFirstReponse("");
-    setFeedbackCategory("");
-    setMcdoTypeLocationFeedback("");
-    setOrderFeedbackType("");
-    setRestaurantFacilityFeedbackType("");
-    setServiceStaffFeedbackStaff("");
-    setSomethingElseDetails(false);
-    setArchCardFeedbackType("");
-    setFeedbackCategory("");
-    setSomethingElseTypeCategory("");
-    setCorporateFeedbackType("");
-    setFinalOrder(false);
-    setArchCardDetails(false);
-    setSomethingElseDetails(false);
-    setMcdoAppFeedbackType("");
   };
 
   return (
@@ -106,51 +79,50 @@ function ChatContainer() {
             </ChatContentContainer>
 
             <ChatContentContainer>
-              <p>Contacting about a previously reported case?</p>
+              <p>Choose from the following options: </p>
               <ButtonContainer>
                 <button
                   onClick={() => {
-                    setFirstReponse("Yes");
-                    setFeedbackCategory("");
-                    setMcdoTypeLocationFeedback("");
-                    setArchCard("");
-                    setOrderFeedbackType("");
-                    setArchCardFeedbackType("");
-                    setSomethingElseTypeCategory("");
-                    setSomethingElseDetails(false);
-                    setCorporateFeedbackType("");
-                    setFinalOrder(false);
-                    setMcdoAppFeedbackType("");
-                    setArchCardDetails(false);
-                    setSomethingElseDetails(false);
+                    setMobileOrApp(true);
                   }}
                 >
-                  Yes
+                  Mobile
                 </button>
                 <button
                   onClick={() => {
-                    setFirstReponse("No");
-                    setFeedbackCategory("");
-                    setMcdoTypeLocationFeedback("");
-                    setArchCard("");
-                    setOrderFeedbackType("");
-                    setCorporateFeedbackType("");
-                    setArchCardFeedbackType("");
-                    setSomethingElseDetails(false);
-                    setSomethingElseTypeCategory("");
-                    setFinalOrder(false);
-                    setMcdoAppFeedbackType("");
-                    setArchCardDetails(false);
-                    setSomethingElseDetails(false);
+                    setMobileOrApp(true);
                   }}
                 >
-                  No
+                  In-App Delivery Order
                 </button>
               </ButtonContainer>
             </ChatContentContainer>
 
+            {mobileOrApp && (
+              <ChatContentContainer>
+                <p>Contacting about a previously reported case?</p>
+                <ButtonContainer>
+                  <button
+                    onClick={() => {
+                      setFirstReponse("Yes");
+                    }}
+                  >
+                    Yes
+                  </button>
+                  <button
+                    onClick={() => {
+                      setFirstReponse("No");
+                    }}
+                  >
+                    No
+                  </button>
+                </ButtonContainer>
+              </ChatContentContainer>
+            )}
+
             {firstResponse === "Yes" ? (
               <ChatContentContainer>
+                <p>Report Details: </p>
                 <form>
                   <input
                     onChange={setCaseNumberFunc}
@@ -162,48 +134,8 @@ function ChatContainer() {
                     value={details}
                     placeholder="Details..."
                   ></textarea>
-                  <input
-                    onChange={setFirstNameFunc}
-                    value={firstName}
-                    placeholder="First Name..."
-                  />
-                  <input
-                    onChange={setLastNameFunc}
-                    value={lastName}
-                    placeholder="Last Name..."
-                  />
-                  <input
-                    onChange={setPersonalEmailFunc}
-                    value={personalEmail}
-                    placeholder="Email..."
-                  />
-                  <input
-                    onChange={setPhoneFunc}
-                    value={phone}
-                    placeholder="Phone..."
-                  />
-                  <input
-                    onChange={setAppEmailFunc}
-                    value={appEmail}
-                    placeholder="Mc Donald's App Email..."
-                  />
                   <ButtonContainer>
-                    <button
-                      onClick={(event) => {
-                        setCaseNumber("");
-                        setDetails("");
-                        setFirstName("");
-                        setLastName("");
-                        setPersonalEmail("");
-                        setPhone("");
-                        setAppEmail("");
-                        setFirstReponse("");
-                        event.preventDefault();
-                        alert("Message sent!");
-                      }}
-                    >
-                      Submit
-                    </button>
+                    <button>Submit</button>
                   </ButtonContainer>
                 </form>
               </ChatContentContainer>
@@ -213,53 +145,35 @@ function ChatContainer() {
 
             {firstResponse === "No" ? (
               <ChatContentContainer>
-                <p>Please select a feedback category</p>
+                <p>Please select a feedback type from the following: </p>
                 <ButtonContainer>
                   <button
                     onClick={() => {
-                      setFeedbackCategory("McDonald's location");
-                      setArchCard("");
-                      setSomethingElseTypeCategory("");
-                      setArchCardFeedbackType("");
-                      setCorporateFeedbackType("");
-                      setMcdoAppFeedbackType("");
-                      setSomethingElseDetails(false);
-                      setArchCardDetails(false);
+                      setFeedbackTypeResponse(true);
                     }}
                   >
-                    McDonald's location
+                    Complaint
                   </button>
                   <button
                     onClick={() => {
-                      setFeedbackCategory("Arch Card");
-                      setMcdoTypeLocationFeedback("");
-                      setSomethingElseTypeCategory("");
-                      setOrderFeedbackType("");
-                      setRestaurantFacilityFeedbackType("");
-                      setServiceStaffFeedbackStaff("");
-                      setArchCardFeedbackType("");
-                      setCorporateFeedbackType("");
-                      setMcdoAppFeedbackType("");
-                      setSomethingElseDetails(false);
-                      setFinalOrder(false);
+                      setFeedbackTypeResponse(true);
                     }}
                   >
-                    Arch Card
+                    Inquiry
                   </button>
                   <button
                     onClick={() => {
-                      setFeedbackCategory("Something else");
-                      setMcdoTypeLocationFeedback("");
-                      setArchCard("");
-                      setOrderFeedbackType("");
-                      setRestaurantFacilityFeedbackType("");
-                      setServiceStaffFeedbackStaff("");
-                      setArchCardFeedbackType("");
-                      setFinalOrder(false);
-                      setArchCardDetails(false);
+                      setFeedbackTypeResponse(true);
                     }}
                   >
-                    Something else
+                    Suggestions
+                  </button>
+                  <button
+                    onClick={() => {
+                      setFeedbackTypeResponse(true);
+                    }}
+                  >
+                    Compliment
                   </button>
                 </ButtonContainer>
               </ChatContentContainer>
@@ -267,42 +181,33 @@ function ChatContainer() {
               ""
             )}
 
-            {feedbackCategory === "McDonald's location" ? (
+            {feedbackTypeResponse && (
               <ChatContentContainer>
-                <p>What is your feedback about?</p>
+                <p>Please select a feedback category from the following: </p>
                 <ButtonContainer>
                   <button
                     onClick={() => {
                       setMcdoTypeLocationFeedback("My order");
-                      setRestaurantFacilityFeedbackType("");
-                      setServiceStaffFeedbackStaff("");
-                      setArchCardFeedbackType("");
                     }}
                   >
-                    My order
+                    Product
                   </button>
                   <button
                     onClick={() => {
                       setMcdoTypeLocationFeedback("Restaurant/Facility");
-                      setOrderFeedbackType("");
-                      setServiceStaffFeedbackStaff("");
                     }}
                   >
-                    Restaurant/Facility
+                    Service
                   </button>
                   <button
                     onClick={() => {
                       setMcdoTypeLocationFeedback("Service/staff");
-                      setOrderFeedbackType("");
-                      setRestaurantFacilityFeedbackType("");
                     }}
                   >
-                    Service/staff
+                    Facilities
                   </button>
                 </ButtonContainer>
               </ChatContentContainer>
-            ) : (
-              ""
             )}
 
             {mcdoTypeLocationFeedback === "My order" ? (
@@ -623,30 +528,30 @@ function ChatContainer() {
                 <p>What type of feedback do you have?</p>
                 <ButtonContainer>
                   <button
-                    onClick={() =>
-                      setServiceStaffFeedbackStaff("Interaction with Staff")
-                    }
+                    onClick={() => {
+                      setServiceStaffFeedbackStaff("Interaction with Staff");
+                    }}
                   >
                     Interaction with Staff
                   </button>
                   <button
-                    onClick={() =>
-                      setServiceStaffFeedbackStaff("Restaurant Policies")
-                    }
+                    onClick={() => {
+                      setServiceStaffFeedbackStaff("Restaurant Policies");
+                    }}
                   >
                     Restaurant Policies
                   </button>
                   <button
-                    onClick={() =>
-                      setServiceStaffFeedbackStaff("Speed of Service")
-                    }
+                    onClick={() => {
+                      setServiceStaffFeedbackStaff("Speed of Service");
+                    }}
                   >
                     Speed of Service
                   </button>
                   <button
-                    onClick={() =>
-                      setServiceStaffFeedbackStaff("Unable To Contact Store")
-                    }
+                    onClick={() => {
+                      setServiceStaffFeedbackStaff("Unable To Contact Store");
+                    }}
                   >
                     Unable To Contact Store
                   </button>
@@ -723,384 +628,6 @@ function ChatContainer() {
               ""
             )}
 
-            {feedbackCategory === "Arch Card" ? (
-              <ChatContentContainer>
-                <p>What is your feedback about?</p>
-                <ButtonContainer>
-                  <button
-                    onClick={() => {
-                      setArchCard("Arch Card (Gift Card)");
-                    }}
-                  >
-                    Arch Card (Gift Card)
-                  </button>
-                </ButtonContainer>
-              </ChatContentContainer>
-            ) : (
-              ""
-            )}
-
-            {archCard === "Arch Card (Gift Card)" ? (
-              <ChatContentContainer>
-                <p>What type of feedback do you have?</p>
-                <ButtonContainer>
-                  <button
-                    onClick={() => {
-                      setArchCardFeedbackType("Arch Card Replacement");
-                    }}
-                  >
-                    Arch Card Replacement
-                  </button>
-                  <button
-                    onClick={() => {
-                      setArchCardFeedbackType("Arch Card Cash Out");
-                    }}
-                  >
-                    Arch Card Cash Out
-                  </button>
-                </ButtonContainer>
-              </ChatContentContainer>
-            ) : (
-              ""
-            )}
-
-            {archCardFeedbackType === "Arch Card Replacement" ? (
-              <ChatContentContainer>
-                <p>Specify Feedback</p>
-                <ButtonContainer>
-                  <button onClick={() => setArchCardDetails(true)}>
-                    Lost / Stolen / Damaged Card Replacement
-                  </button>
-                </ButtonContainer>
-              </ChatContentContainer>
-            ) : (
-              ""
-            )}
-
-            {archCardFeedbackType === "Arch Card Cash Out" ? (
-              <ChatContentContainer>
-                <p>Specify Feedback</p>
-                <ButtonContainer>
-                  <button onClick={() => setArchCardDetails(true)}>
-                    Cash Out Request
-                  </button>
-                </ButtonContainer>
-              </ChatContentContainer>
-            ) : (
-              ""
-            )}
-
-            {feedbackCategory === "Something else" ? (
-              <ChatContentContainer>
-                <p>What is your feedback about?</p>
-                <ButtonContainer>
-                  <button
-                    onClick={() => {
-                      setSomethingElseTypeCategory("Corporate");
-                      setMcdoAppFeedbackType("");
-                    }}
-                  >
-                    Corporate
-                  </button>
-                  <button
-                    onClick={() => {
-                      setSomethingElseTypeCategory("McDonald's App");
-                      setCorporateFeedbackType("");
-                    }}
-                  >
-                    McDonald's App
-                  </button>
-                </ButtonContainer>
-              </ChatContentContainer>
-            ) : (
-              ""
-            )}
-
-            {somethingElseTypeCategory === "Corporate" ? (
-              <ChatContentContainer>
-                <p>What type of feedback do you have?</p>
-                <ButtonContainer>
-                  <button onClick={() => setCorporateFeedbackType("Business")}>
-                    Business
-                  </button>
-                  <button
-                    onClick={() =>
-                      setCorporateFeedbackType(
-                        "Customer Data and Communications"
-                      )
-                    }
-                  >
-                    Customer Data and Communications
-                  </button>
-                  <button onClick={() => setCorporateFeedbackType("Marketing")}>
-                    Marketing
-                  </button>
-                  <button onClick={() => setCorporateFeedbackType("Menu")}>
-                    Menu
-                  </button>
-                  <button
-                    onClick={() =>
-                      setCorporateFeedbackType("Social Responsibility")
-                    }
-                  >
-                    Social Responsibility
-                  </button>
-                </ButtonContainer>
-              </ChatContentContainer>
-            ) : (
-              ""
-            )}
-
-            {corporateFeedbackType === "Business" ? (
-              <ChatContentContainer>
-                <p>Specify Feedback</p>
-                <ButtonContainer>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Employment
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    General Inquiry / Feedback
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Ideas and Suggestions
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Packaging
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Payments
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Suppliers
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Trademark Permission
-                  </button>
-                </ButtonContainer>
-              </ChatContentContainer>
-            ) : (
-              ""
-            )}
-
-            {corporateFeedbackType === "Customer Data and Communications" ? (
-              <ChatContentContainer>
-                <p>Specify Feedback</p>
-                <ButtonContainer>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Communication Options
-                  </button>
-                </ButtonContainer>
-              </ChatContentContainer>
-            ) : (
-              ""
-            )}
-
-            {corporateFeedbackType === "Marketing" ? (
-              <ChatContentContainer>
-                <p>Specify Feedback</p>
-                <ButtonContainer>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Media / Ad / Signage Feedback
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Partnership
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Promotions
-                  </button>
-                </ButtonContainer>
-              </ChatContentContainer>
-            ) : (
-              ""
-            )}
-
-            {corporateFeedbackType === "Menu" ? (
-              <ChatContentContainer>
-                <p>Specify Feedback</p>
-                <ButtonContainer>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Current Menu Offerings
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Discontinued or Limited Time Menu offerings
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Happy Meals
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Ingredients / Nutrition
-                  </button>
-                </ButtonContainer>
-              </ChatContentContainer>
-            ) : (
-              ""
-            )}
-
-            {corporateFeedbackType === "Social Responsibility" ? (
-              <ChatContentContainer>
-                <p>Specify Feedback</p>
-                <ButtonContainer>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Community
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Environment / Sustainability
-                  </button>
-                </ButtonContainer>
-              </ChatContentContainer>
-            ) : (
-              ""
-            )}
-
-            {somethingElseTypeCategory === "McDonald's App" ? (
-              <ChatContentContainer>
-                <p>What type of feedback do you have?</p>
-                <ButtonContainer>
-                  <button
-                    onClick={() => {
-                      setMcdoAppFeedbackType("Account / Login");
-                    }}
-                  >
-                    Account / Login
-                  </button>
-                  <button
-                    onClick={() => {
-                      setMcdoAppFeedbackType("General App Support");
-                    }}
-                  >
-                    General App Support
-                  </button>
-                  <button
-                    onClick={() => {
-                      setMcdoAppFeedbackType("Loyalty / Rewards Program");
-                    }}
-                  >
-                    Loyalty / Rewards Program
-                  </button>
-                  <button
-                    onClick={() => {
-                      setMcdoAppFeedbackType("Mobile Order and Pay");
-                    }}
-                  >
-                    Mobile Order and Pay
-                  </button>
-                  <button
-                    onClick={() => {
-                      setMcdoAppFeedbackType("Rewards and Deals");
-                    }}
-                  >
-                    Rewards and Deals
-                  </button>
-                </ButtonContainer>
-              </ChatContentContainer>
-            ) : (
-              ""
-            )}
-
-            {mcdoAppFeedbackType === "Account / Login" ? (
-              <ChatContentContainer>
-                <p>Specify Feedback</p>
-                <ButtonContainer>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    App Privacy
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    App Settings
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Unable to Login
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Registration
-                  </button>
-                </ButtonContainer>
-              </ChatContentContainer>
-            ) : (
-              ""
-            )}
-
-            {mcdoAppFeedbackType === "General App Support" ? (
-              <ChatContentContainer>
-                <p>Specify Feedback</p>
-                <ButtonContainer>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Features and Appearance / General Information
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Restaurant Support
-                  </button>
-                </ButtonContainer>
-              </ChatContentContainer>
-            ) : (
-              ""
-            )}
-
-            {mcdoAppFeedbackType === "Loyalty / Rewards Program" ? (
-              <ChatContentContainer>
-                <p>Specify Feedback</p>
-                <ButtonContainer>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Loyalty / Rewards Information
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Missing Loyalty Points
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Opt In / Opt Out
-                  </button>
-                </ButtonContainer>
-              </ChatContentContainer>
-            ) : (
-              ""
-            )}
-
-            {mcdoAppFeedbackType === "Mobile Order and Pay" ? (
-              <ChatContentContainer>
-                <p>Specify Feedback</p>
-                <ButtonContainer>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Charged - Store Closed
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Charged - Did Not Receive Order
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Charged - Incorrect Total
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Charged - Item Unavailable
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Delivery Charges
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    No Charge - Did Not Receive Order
-                  </button>
-                </ButtonContainer>
-              </ChatContentContainer>
-            ) : (
-              ""
-            )}
-
-            {mcdoAppFeedbackType === "Rewards and Deals" ? (
-              <ChatContentContainer>
-                <p>Specify Feedback</p>
-                <ButtonContainer>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Deal / Offer Promotion
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Issue Using Deal or Offer
-                  </button>
-                  <button onClick={() => setSomethingElseDetails(true)}>
-                    Redeeming / Applying Rewards and Deals
-                  </button>
-                </ButtonContainer>
-              </ChatContentContainer>
-            ) : (
-              ""
-            )}
-
             {finalOrder && (
               <ChatContentContainer>
                 <p>
@@ -1114,10 +641,6 @@ function ChatContainer() {
                     <button type="button">Verify this number</button>
                     <button type="button">Use Restaurant Locator</button>
                   </ButtonContainer>
-                  <p>Please specify the date and time of your visit.</p>
-                  <input placeholder="Visit Date..." />
-                  <input placeholder="Visit Time..." />
-                  <input placeholder="AM/PM..." />
                   <p>Feedback Details</p>
                   <textarea
                     onChange={setDetailsFunc}
@@ -1151,147 +674,7 @@ function ChatContainer() {
                     placeholder="Mc Donald's App Email..."
                   />
                   <ButtonContainer>
-                    <button
-                      onClick={(event) => {
-                        setCaseNumber("");
-                        setDetails("");
-                        setFirstName("");
-                        setLastName("");
-                        setPersonalEmail("");
-                        setPhone("");
-                        setAppEmail("");
-                        setFirstReponse("");
-                        event.preventDefault();
-                        alert("Message sent!");
-                      }}
-                    >
-                      Submit
-                    </button>
-                  </ButtonContainer>
-                </form>
-              </ChatContentContainer>
-            )}
-
-            {archCardDetails && (
-              <ChatContentContainer>
-                <form>
-                  <p>Arch Card Details</p>
-                  <input placeholder="Arch Card Number or Online Order Number..." />
-                  <input placeholder="Date of Purchase..." />
-                  <p>Shipping Address</p>
-                  <input placeholder="Street..." />
-                  <input placeholder="City..." />
-                  <input placeholder="State..." />
-                  <input placeholder="Zip..." />
-                  <p>Supporting Attachments</p>
-                  <input placeholder="Type Full Name..." />
-                  <input placeholder="Today's Date..." />
-                  <p>Feedback Details</p>
-                  <textarea
-                    onChange={setDetailsFunc}
-                    value={details}
-                    placeholder="Details..."
-                  ></textarea>
-                  <p>Your Info</p>
-                  <input
-                    onChange={setFirstNameFunc}
-                    value={firstName}
-                    placeholder="First Name..."
-                  />
-                  <input
-                    onChange={setLastNameFunc}
-                    value={lastName}
-                    placeholder="Last Name..."
-                  />
-                  <input
-                    onChange={setPersonalEmailFunc}
-                    value={personalEmail}
-                    placeholder="Email..."
-                  />
-                  <input
-                    onChange={setPhoneFunc}
-                    value={phone}
-                    placeholder="Phone..."
-                  />
-                  <input
-                    onChange={setAppEmailFunc}
-                    value={appEmail}
-                    placeholder="Mc Donald's App Email..."
-                  />
-                  <ButtonContainer>
-                    <button
-                      onClick={(event) => {
-                        setCaseNumber("");
-                        setDetails("");
-                        setFirstName("");
-                        setLastName("");
-                        setPersonalEmail("");
-                        setPhone("");
-                        setAppEmail("");
-                        setFirstReponse("");
-                        event.preventDefault();
-                        alert("Message sent!");
-                      }}
-                    >
-                      Submit
-                    </button>
-                  </ButtonContainer>
-                </form>
-              </ChatContentContainer>
-            )}
-
-            {somethingElseDetails && (
-              <ChatContentContainer>
-                <form>
-                  <p>Feedback Details</p>
-                  <textarea
-                    onChange={setDetailsFunc}
-                    value={details}
-                    placeholder="Details..."
-                  ></textarea>
-                  <p>Your Info</p>
-                  <input
-                    onChange={setFirstNameFunc}
-                    value={firstName}
-                    placeholder="First Name..."
-                  />
-                  <input
-                    onChange={setLastNameFunc}
-                    value={lastName}
-                    placeholder="Last Name..."
-                  />
-                  <input
-                    onChange={setPersonalEmailFunc}
-                    value={personalEmail}
-                    placeholder="Email..."
-                  />
-                  <input
-                    onChange={setPhoneFunc}
-                    value={phone}
-                    placeholder="Phone..."
-                  />
-                  <input
-                    onChange={setAppEmailFunc}
-                    value={appEmail}
-                    placeholder="Mc Donald's App Email..."
-                  />
-                  <ButtonContainer>
-                    <button
-                      onClick={(event) => {
-                        setCaseNumber("");
-                        setDetails("");
-                        setFirstName("");
-                        setLastName("");
-                        setPersonalEmail("");
-                        setPhone("");
-                        setAppEmail("");
-                        setFirstReponse("");
-                        event.preventDefault();
-                        alert("Message sent!");
-                      }}
-                    >
-                      Submit
-                    </button>
+                    <button>Submit</button>
                   </ButtonContainer>
                 </form>
               </ChatContentContainer>
