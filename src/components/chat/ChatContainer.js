@@ -12,7 +12,7 @@ function ChatContainer() {
   const [phone, setPhone] = useState("");
   const [appEmail, setAppEmail] = useState("");
   const [showChat, setShowChat] = useState(false);
-  const [mobileOrApp, setMobileOrApp] = useState(false);
+  const [mobileOrApp, setMobileOrApp] = useState("");
   const [feedbackTypeResponse, setFeedbackTypeResponse] = useState(false);
   const [firstResponse, setFirstReponse] = useState("");
   const [mcdoTypeLocationFeedback, setMcdoTypeLocationFeedback] = useState("");
@@ -22,6 +22,12 @@ function ChatContainer() {
   const [serviceStaffFeedbackStaff, setServiceStaffFeedbackStaff] =
     useState("");
   const [finalOrder, setFinalOrder] = useState(false);
+
+  const [showPartners, setShowPartners] = useState(false);
+
+  const [mobileAppClicked, setMobileAppClicked] = useState(false);
+
+  const [isChecked, setIsChecked] = useState(true);
 
   const setCaseNumberFunc = (event) => {
     setCaseNumber(event.target.value);
@@ -33,6 +39,10 @@ function ChatContainer() {
 
   const setFirstNameFunc = (event) => {
     setFirstName(event.target.value);
+  };
+
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked); // Toggle the checkbox state
   };
 
   const setLastNameFunc = (event) => {
@@ -65,6 +75,7 @@ function ChatContainer() {
     setFinalOrder(false);
     setFeedbackTypeResponse(false);
     setMobileOrApp(false);
+    setShowPartners(false);
   };
 
   return (
@@ -85,7 +96,7 @@ function ChatContainer() {
             </ChatContentContainer>
 
             <ChatContentContainer className="slide-in-from-bottom-fast">
-              <p>Choose from the following options: </p>
+              <p>How did you initiate the order?</p>
               <ButtonContainer>
                 <button
                   onClick={() => {
@@ -97,9 +108,11 @@ function ChatContainer() {
                     setMcdoTypeLocationFeedback("");
                     setRestaurantFacilityFeedbackType("");
                     setFinalOrder(false);
+                    setShowPartners(false);
+                    setMobileAppClicked(true);
                   }}
                 >
-                  Mobile
+                  Mobile App
                 </button>
                 <button
                   onClick={() => {
@@ -111,12 +124,68 @@ function ChatContainer() {
                     setOrderFeedbackType("");
                     setFeedbackTypeResponse(false);
                     setFirstReponse("");
+                    setMobileAppClicked(false);
+
+                    setShowPartners(false);
                   }}
                 >
-                  In-App Delivery Order
+                  Restaurant Visit
+                </button>
+                <button
+                  onClick={() => {
+                    setMobileAppClicked(false);
+                    setShowPartners(true);
+                    setMobileOrApp(false);
+                    setServiceStaffFeedbackStaff("");
+                    setRestaurantFacilityFeedbackType("");
+                    setFinalOrder(false);
+                    setMcdoTypeLocationFeedback("");
+                    setOrderFeedbackType("");
+                    setFeedbackTypeResponse(false);
+                    setFirstReponse("");
+                    setShowPartners(true);
+                  }}
+                >
+                  Delivery Partner App
                 </button>
               </ButtonContainer>
             </ChatContentContainer>
+
+            {showPartners && (
+              <ChatContentContainer className="slide-in-from-bottom-fast">
+                <p>Which delivery partner?</p>
+                <ButtonContainer>
+                  <button
+                    onClick={() => {
+                      setFirstReponse("No");
+                    }}
+                  >
+                    Uber Eats
+                  </button>
+                  <button
+                    onClick={() => {
+                      setFirstReponse("No");
+                    }}
+                  >
+                    Doordash
+                  </button>
+                  <button
+                    onClick={() => {
+                      setFirstReponse("No");
+                    }}
+                  >
+                    Grubhub
+                  </button>
+                  <button
+                    onClick={() => {
+                      setFirstReponse("No");
+                    }}
+                  >
+                    Postmates
+                  </button>
+                </ButtonContainer>
+              </ChatContentContainer>
+            )}
 
             {mobileOrApp && (
               <ChatContentContainer className="slide-in-from-bottom-fast">
@@ -275,7 +344,7 @@ function ChatContainer() {
                       }
                     }}
                   >
-                    Product
+                    My Order
                   </button>
                   <button
                     onClick={() => {
@@ -765,32 +834,75 @@ function ChatContainer() {
                     value={details}
                     placeholder="Details..."
                   ></textarea>
-                  <p>Your Info</p>
-                  <input
-                    onChange={setFirstNameFunc}
-                    value={firstName}
-                    placeholder="First Name..."
-                  />
-                  <input
-                    onChange={setLastNameFunc}
-                    value={lastName}
-                    placeholder="Last Name..."
-                  />
-                  <input
-                    onChange={setPersonalEmailFunc}
-                    value={personalEmail}
-                    placeholder="Email..."
-                  />
-                  <input
-                    onChange={setPhoneFunc}
-                    value={phone}
-                    placeholder="Phone..."
-                  />
-                  <input
-                    onChange={setAppEmailFunc}
-                    value={appEmail}
-                    placeholder="Mc Donald's App Email..."
-                  />
+
+                  {mobileAppClicked ? (
+                    <>
+                      <p>Your Email Address: </p>
+                      <input
+                        onChange={setPersonalEmailFunc}
+                        value={personalEmail}
+                        placeholder="Email..."
+                      />
+                      <label>
+                        <input
+                          type="checkbox"
+                          checked={isChecked}
+                          onChange={handleCheckboxChange}
+                        />
+                        &nbsp; Is this the registered Email address?
+                      </label>
+
+                      {!isChecked ? (
+                        <>
+                          <p>Your info:</p>
+                          <input
+                            onChange={setFirstNameFunc}
+                            value={firstName}
+                            placeholder="First Name..."
+                          />
+                          <input
+                            onChange={setLastNameFunc}
+                            value={lastName}
+                            placeholder="Last Name..."
+                          />
+                        </>
+                      ) : (
+                        ""
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      <p>Your Info</p>
+                      <input
+                        onChange={setFirstNameFunc}
+                        value={firstName}
+                        placeholder="First Name..."
+                      />
+
+                      <input
+                        onChange={setLastNameFunc}
+                        value={lastName}
+                        placeholder="Last Name..."
+                      />
+
+                      <input
+                        onChange={setPersonalEmailFunc}
+                        value={personalEmail}
+                        placeholder="Email..."
+                      />
+                      <input
+                        onChange={setPhoneFunc}
+                        value={phone}
+                        placeholder="Phone..."
+                      />
+                      <input
+                        onChange={setAppEmailFunc}
+                        value={appEmail}
+                        placeholder="Mc Donald's App Email..."
+                      />
+                    </>
+                  )}
+
                   <ButtonContainer>
                     <button
                       type="submit"
