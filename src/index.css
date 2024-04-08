@@ -110,6 +110,10 @@ body {
   transition: all 500ms ease;
 }
 
+nav {
+  background-color: white;
+}
+
 .btn-danger {
   padding: 10px;
   font-size: 16px;
