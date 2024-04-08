@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/mcdo-clone/static/css/main.1ac8f54f.css",
+    "main.css": "/mcdo-clone/static/css/main.429c2a8b.css",
     "main.js": "/mcdo-clone/static/js/main.6e2286e5.js",
     "static/media/image3.png": "/mcdo-clone/static/media/image3.abc1a48a17bfe66986e8.png",
     "static/media/image1.png": "/mcdo-clone/static/media/image1.781e54419482f359a7b0.png",
@@ -9,11 +9,11 @@
     "static/media/google_play_badge.png": "/mcdo-clone/static/media/google_play_badge.513214132c00ef964087.png",
     "static/media/app_store_badge.png": "/mcdo-clone/static/media/app_store_badge.00b1e701c5946b6f986e.png",
     "index.html": "/mcdo-clone/index.html",
-    "main.1ac8f54f.css.map": "/mcdo-clone/static/css/main.1ac8f54f.css.map",
+    "main.429c2a8b.css.map": "/mcdo-clone/static/css/main.429c2a8b.css.map",
     "main.6e2286e5.js.map": "/mcdo-clone/static/js/main.6e2286e5.js.map"
   },
   "entrypoints": [
-    "static/css/main.1ac8f54f.css",
+    "static/css/main.429c2a8b.css",
     "static/js/main.6e2286e5.js"
   ]
 }
