@@ -90,8 +90,7 @@ function ChatContainer() {
             <ChatContentContainer>
               <p>
                 Your response to this question may require you to answer
-                additional questions. *Contacting McDonald's about a previously
-                reported case
+                additional questions.
               </p>
             </ChatContentContainer>
 
