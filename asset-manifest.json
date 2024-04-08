@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/mcdo-clone/static/css/main.d02d36e8.css",
-    "main.js": "/mcdo-clone/static/js/main.7c6682e0.js",
+    "main.js": "/mcdo-clone/static/js/main.de60e147.js",
     "static/media/image3.png": "/mcdo-clone/static/media/image3.abc1a48a17bfe66986e8.png",
     "static/media/image1.png": "/mcdo-clone/static/media/image1.781e54419482f359a7b0.png",
     "static/media/image2.png": "/mcdo-clone/static/media/image2.0926d2392aa7948e860c.png",
@@ -10,10 +10,10 @@
     "static/media/app_store_badge.png": "/mcdo-clone/static/media/app_store_badge.00b1e701c5946b6f986e.png",
     "index.html": "/mcdo-clone/index.html",
     "main.d02d36e8.css.map": "/mcdo-clone/static/css/main.d02d36e8.css.map",
-    "main.7c6682e0.js.map": "/mcdo-clone/static/js/main.7c6682e0.js.map"
+    "main.de60e147.js.map": "/mcdo-clone/static/js/main.de60e147.js.map"
   },
   "entrypoints": [
     "static/css/main.d02d36e8.css",
-    "static/js/main.7c6682e0.js"
+    "static/js/main.de60e147.js"
   ]
 }
