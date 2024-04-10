@@ -3,6 +3,8 @@ import { useState } from "react";
 import bubble from "../assets/bubble.png";
 
 function ChatContainer() {
+  const [buttons, setButtons] = useState();
+
   const [receipt, setReceipt] = useState("");
   const [caseNumber, setCaseNumber] = useState("");
   const [details, setDetails] = useState("");
@@ -146,7 +148,7 @@ function ChatContainer() {
                     setOrderFeedbackType("");
                     setFeedbackTypeResponse(false);
                     setFirstReponse("");
-                    setShowPartners(true);
+                    setShowPartners(!showPartners);
                   }}
                 >
                   Delivery Partner App
